@@ -16,8 +16,15 @@ public class InputValidatorTest {
      */
     @Test
     public void testNameFieldIsNotEmpty() {
-        // assertTrue(InputValidator.validateNameField("..."));
+        assertTrue(InputValidator.isValidPhoneNum("13108061152"));
+        assertFalse(InputValidator.isValidPhoneNum("02118063152"));
+
         // assertFalse (InputValidator.validateNameField("..."));
+        assertTrue(InputValidator.isValidImage("bird.png", 4));
+        assertFalse(InputValidator.isValidImage("bird.png", 5));
+        assertFalse(InputValidator.isValidImage("bird.gif", 3));
+
+
     }
     
     // CREATE MORE TESTS HERE
