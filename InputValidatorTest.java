@@ -16,10 +16,54 @@ public class InputValidatorTest {
      */
     @Test
     public void testNameFieldIsNotEmpty() {
-        // assertTrue(InputValidator.validateNameField("..."));
-        // assertFalse (InputValidator.validateNameField("..."));
+         assertTrue(InputValidator.isValidName("Cole"));
+         assertFalse (InputValidator.isValidName("j"));
     }
     
-    // CREATE MORE TESTS HERE
+    /*
+     * Tests the postal code and ensures that the value inputed is valid
+     * 
+     * 
+     *  
+     */
+    @Test
+    public void testPostalCode()
+    {
+        // Test cases for the postal code field 
+        assertTrue(InputValidator.isValidPostalCode("49006"));
+        assertTrue(InputValidator.isValidPostalCode(null));
+        assertFalse(InputValidator.isValidPostalCode("248"));
+        
+        
+    }
+    /*
+     * Write Comments
+     * This test checks the password input field and makes sure that it is valid and
+     * meets all requirements 
+     */
+    @Test
+    public void testPassWord()
+    {
+        // Test cases for password field 
+        assertTrue(InputValidator.isValidPassWord("Password1"));
+        assertTrue(InputValidator.isValidPassWord("pAssword1"));
+        assertFalse(InputValidator.isValidPassWord("password1"));
+    }
+
+    //Tests if the medium that was input is from the drop down menu 
+    @Test 
+    public void testMediumInput()
+    {
+        //Tests whether values from the list are accepted 
+        assertTrue(InputValidator.isValidMedium("clay"));
+        assertTrue(InputValidator.isValidMedium("graphite"));
+        assertTrue(InputValidator.isValidMedium("paint"));
+        //Tests wheter values that are not on the drop down list are accepted
+        assertFalse(InputValidator.isValidMedium("dirt"));
+        //Tests if no value for the input field is accepted
+        assertFalse(InputValidator.isValidMedium(null));
+        
+    }
+
     
 }
