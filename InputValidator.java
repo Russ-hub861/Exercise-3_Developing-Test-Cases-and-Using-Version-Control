@@ -10,7 +10,13 @@ import java.util.List;
 
 public class InputValidator 
 {
-InputValidator isValidName = new InputValidator(); 
+    /**
+     * Validates the name input.
+     *
+     * @param input the name provided by the user
+     * @return true if the input is valid, false otherwise
+     */
+    InputValidator isValidName = new InputValidator(); 
     //Function for checking if the first name input is valid
     public static boolean isValidName(String firstname)
     {
@@ -27,7 +33,12 @@ InputValidator isValidName = new InputValidator();
             return true;
         }
     }
-    // Function to check if the postal code entered is valid 
+    /**
+     * Validates the postal code input.
+     *
+     * @param input the postal code provided by the user
+     * @return true if the input is valid, false otherwise
+     */
 InputValidator isValidPostalCode = new InputValidator();
     public static boolean isValidPostalCode(String postalcode)
     {
@@ -47,7 +58,12 @@ InputValidator isValidPostalCode = new InputValidator();
             return false;
         }
     }
-    // Function to check whether the password entered is valid
+/**
+     * Validates the Password input.
+     *
+     * @param input the password provided by the user
+     * @return true if the input is valid, false otherwise
+     */
     InputValidator isValidPassWord = new InputValidator();
     public static boolean isValidPassWord(String passWord)
     {
@@ -95,7 +111,12 @@ InputValidator isValidPostalCode = new InputValidator();
             return hasUpper && hasLower && hasDigit;
     }
 
-    // Function to check whether the medium of a painting is valid
+    /**
+     * Validates the Medium input.
+     *
+     * @param input the medium from a drop down menu for the piece
+     * @return true if the input is valid, false otherwise
+     */
     static ArrayList<String> acceptedMed = new ArrayList<>(List.of("paint", "graphite", "clay", "digital"));
     InputValidator isValidMedium = new InputValidator();
     public static boolean isValidMedium(String pieceMedium)
@@ -110,7 +131,7 @@ InputValidator isValidPostalCode = new InputValidator();
         }
 
     }
-public class InputValidator {
+//public class InputValidator {
     /**
      * Validates the last name input.
      *
