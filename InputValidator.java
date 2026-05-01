@@ -12,8 +12,6 @@ public class InputValidator {
      * @return true if the input is valid, false otherwise
      */
     public static boolean testLastNameField(String input) {
-        // This method will validate the input from the user.
-        // You can add your validation logic here. For example, you can check if the input is empty or if it matches a certain pattern.
         if (input == null || input.isEmpty()) {
             return false; // Input is invalid
         }
@@ -42,8 +40,6 @@ public class InputValidator {
      * @return true if the input is valid, false otherwise
      */
     public static boolean testEmailField(String input) {
-        // This method will validate the input from the user.
-        // You can add your validation logic here. For example, you can check if the input is empty or if it matches a certain pattern.
         if (input == null || input.isEmpty()) {
             return false; // Input is invalid
         }
@@ -63,8 +59,6 @@ public class InputValidator {
      * @return true if the input is valid, false otherwise
      */
     public static boolean testDimension(String input) {
-        // This method will validate the input from the user.
-        // You can add your validation logic here. For example, you can check if the input is empty or if it matches a certain pattern.
         if (input == null || input.isEmpty()) {
             return false; // Input is invalid
         }
