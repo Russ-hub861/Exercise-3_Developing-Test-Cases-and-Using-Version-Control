@@ -47,7 +47,10 @@ public class InputValidatorTest {
         // Test cases for password field 
         assertTrue(InputValidator.isValidPassWord("Password1"));
         assertTrue(InputValidator.isValidPassWord("pAssword1"));
+        assertTrue(InputValidator.isValidPassWord("Secure-123"));
         assertFalse(InputValidator.isValidPassWord("password1"));
+        assertFalse(InputValidator.isValidPassWord("12345678"));
+        assertFalse(InputValidator.isValidPassWord("bobthebest"));
     }
 
     //Tests if the medium that was input is from the drop down menu 
