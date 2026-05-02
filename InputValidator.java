@@ -1,4 +1,7 @@
-import java.util.regex.*;
+import java.util.ArrayList;
+import java.time.LocalDate;
+import java.time.Period;
+import java.util.List;
 /*
  * Exercise 3: Developing Test Cases
  *
@@ -10,24 +13,19 @@ import java.util.regex.*;
  * @version May 1, 2026
  */
 
-import java.util.ArrayList;
-import java.time.LocalDate;
-import java.time.Period;
-import java.util.List;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.time.LocalDate;
-import java.time.Period;
-
 public class InputValidator {
 
-    static ArrayList<String> userNames = new ArrayList<>(); //creates a list to hold usernames
+    //creates a list to hold usernames
+    static ArrayList<String> userNames = new ArrayList<>();
 
     //creates a list of accepted currencies
     static ArrayList<String> acceptedCurr = new ArrayList<>(List.of("US DOLLAR", "CANADIAN DOLLAR", "EURO", "PESO", "BIT COIN"));
 
+    //creates a variable to hold the current date
     static LocalDate today = LocalDate.now();
+
+    //creates a list of accepted mediums
+    static ArrayList<String> acceptedMed = new ArrayList<>(List.of("paint", "graphite", "clay", "digital"));
 
     /**
      * Validates the description field.
@@ -92,7 +90,6 @@ public class InputValidator {
 
             return Period.between(birthDay, today).getYears() >= 18; //checks if the user is 18+
         }
-
         return false;
     }
 
@@ -132,22 +129,14 @@ public class InputValidator {
      */
     public static boolean validatePriceField(String currency, String price){
 
-        if(price.isEmpty() && currency.isEmpty()){//checks if price and currency field is empty
-            return true;
-        }
-        else if((price.isEmpty() && !currency.isEmpty()) || (!price.isEmpty() && currency.isEmpty())){// checks if only one field is empty
+        if(price.isEmpty() || currency.isEmpty()){//checks if either field is empty, if so return false since both fields must be filled
             return false;
         }
-
-        float num = Float.parseFloat(price);
-
-        if(acceptedCurr.contains(currency.toUpperCase()) && num >= 0.00){//checks if the currency input is accepted
+        if(acceptedCurr.contains(currency.toUpperCase()) && Float.parseFloat(price) >= 0.00){//checks if the currency input is accepted
             return true;
         }
-
         return false;
     }
-}
 
     /**
      * Returns a boolean value that represents whether or not the image is valid.
@@ -158,16 +147,7 @@ public class InputValidator {
     public static boolean isValidImage(String imageData, int imageSize)
     {
         //Assume file size is in megabytes
-        String r = "^[A-Za-z0-9._-]+\\.(png|jpg)$";
-        if(imageData.matches(r) && imageSize <= 4) {
-            System.out.println("Vaild Image Type.");
-            return true;
-        }
-        else {
-            System.out.println("Invalid Image Type or Size!");
-
-            return false;
-        }
+        return imageData.matches("^[A-Za-z0-9._-]+\\.(png|jpg)$") && imageSize <= 4; // checks if the image name matches the expected pattern and if the size is less than or equal to 4mb
     }
 
     /**
@@ -176,28 +156,10 @@ public class InputValidator {
      * @param n String value that represent the phone number inputted by the user
      * @return boolean
      */
-
-    public static boolean isValidPhoneNum(String n) {
-        // the number starts with 1
-        // followed by 9 digits
-        String r = "^1[0-9]{10}$";
-
-        // Check if the number matches the correct template.
-        if (n.matches(r)) {
-            System.out.println("Valid Mobile Number.");
-            return true;
-        }
-        else {
-            System.out.println("Invalid Mobile Number!");
-            return false;
-        }
+    public static boolean isValidPhoneNum(String number) {
+        return number.matches("^1[0-9]{10}$"); // checks if the phone number matches the expected pattern
     }
-//import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.List;
 
-public class InputValidator 
-{
     /**
      * Validates the first name input.
      *
@@ -274,7 +236,6 @@ public class InputValidator
      * @param input the medium provided by the user
      * @return true if the input is valid, false otherwise
      */
-    static ArrayList<String> acceptedMed = new ArrayList<>(List.of("paint", "graphite", "clay", "digital"));
     public static boolean isValidMedium(String pieceMedium)
     {
         return acceptedMed.contains(pieceMedium); //Checks if the input is in the list of accepted mediums

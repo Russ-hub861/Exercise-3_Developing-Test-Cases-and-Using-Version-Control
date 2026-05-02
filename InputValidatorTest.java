@@ -10,6 +10,9 @@ import org.junit.jupiter.api.Test;
 
 public class InputValidatorTest {
 
+    /* 
+     * Test method for validating the phone number field. This test checks if the phone number is valid and meets all requirements.
+     */
     @Test
     public void testPhoneNumField() {
         // isValidPhoneNum Test Cases
@@ -18,14 +21,19 @@ public class InputValidatorTest {
         assertFalse(InputValidator.isValidPhoneNum("1012345678")); //returns false because number is not long enough.@Te
     }
 
-    //isValidImage Test Cases
+    /*
+     * Test method for validating the image field. This test checks if the image file is valid and meets all requirements.
+     */
     @Test
     public void testImageField() {
         assertTrue(InputValidator.isValidImage("bird.png", 4)); //returns true because the file type is <=4, and it is a valid file type.
         assertFalse(InputValidator.isValidImage("bird.png", 5)); //returns false because the file type is > 4.
         assertFalse(InputValidator.isValidImage("bird.gif", 3)); //returns false because it is an invalid file type.
     }
-        /* Test method for validating the email field */
+
+    /* 
+     * Test method for validating the email field. This test checks if the email address is valid and meets all requirements.
+     */
     @Test
     public void testEmailField(){
         //valid test cases for email field
@@ -49,7 +57,9 @@ public class InputValidatorTest {
         assertFalse(InputValidator.testEmailField("name @example.com"));
     }
 
-    /* Test method for validating the last name field */
+    /* 
+     * Test method for validating the first name field
+     */
     @Test
     public void testNameFieldIsNotEmpty() {
         assertTrue(InputValidator.isValidName("Cole"));
@@ -57,10 +67,7 @@ public class InputValidatorTest {
     }
 
     /*
-     * Tests the postal code and ensures that the value inputed is valid
-     *
-     *
-     *
+     * Test method for validating the postal code field. This test checks if the postal code is valid and meets all requirements.
      */
     @Test
     public void testPostalCode()
@@ -72,10 +79,9 @@ public class InputValidatorTest {
 
 
     }
+
     /*
-     * Write Comments
-     * This test checks the password input field and makes sure that it is valid and
-     * meets all requirements
+     * This test checks the password input field and makes sure that it is valid and meets all requirements
      */
     @Test
     public void testPassWord()
@@ -89,7 +95,9 @@ public class InputValidatorTest {
         assertFalse(InputValidator.isValidPassWord("bobthebest"));
     }
 
-    //Tests if the medium that was input is from the drop down menu
+    /*
+     * Test method for validating the medium field. This test checks if the medium input is valid and meets all requirements.
+     */
     @Test
     public void testMediumInput()
     {
@@ -104,7 +112,10 @@ public class InputValidatorTest {
 
     }
 
-
+    /*
+     * Test method for validating the last name field. This test checks if the last name input is valid and meets all requirements.
+     */
+    @Test
     public void testLastName() {
         //valid test cases for last name field
         assertTrue(InputValidator.testLastNameField("Smith"));
@@ -125,7 +136,9 @@ public class InputValidatorTest {
         assertFalse(InputValidator.testLastNameField("Smith-"));
     }
 
-    /* Test method for validating the dimension field */
+    /*
+     * Test method for validating the dimension field. This test checks if the dimension input is valid and meets all requirements.
+     */
     @Test
     public void testDimension(){
         //valid test cases for dimension field
@@ -152,6 +165,7 @@ public class InputValidatorTest {
         assertFalse(InputValidator.testDimension(""));
         assertFalse(InputValidator.testDimension(null));
     }
+
     /*
      * Tests the validateDateOfBirthField method with various inputs.
      * Checks valid age (18+), underage, future-related edge cases, and empty inputs.

@@ -232,7 +232,7 @@ Validates a creation date.
 Validates a Price.
 
 **Rules:**
-- Can be empty(either both should be empty or both should be filled
+- Can be either both should be empty or both should be filled
 - Must be either "US DOLLAR", "CANADIAN DOLLAR", "EURO", "PESO", or "BIT COIN"
 - Price can't be negative
 
