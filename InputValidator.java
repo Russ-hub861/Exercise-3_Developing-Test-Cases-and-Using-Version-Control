@@ -129,13 +129,16 @@ public class InputValidator {
      */
     public static boolean validatePriceField(String currency, String price){
 
-        if(price.isEmpty() || currency.isEmpty()){//checks if either field is empty, if so return false since both fields must be filled
-            return false;
-        }
-        if(acceptedCurr.contains(currency.toUpperCase()) && Float.parseFloat(price) >= 0.00){//checks if the currency input is accepted
+        if (price.isEmpty() && currency.isEmpty()) {
             return true;
         }
-        return false;
+        if(price.isEmpty() ^ currency.isEmpty()){ //checks if one field is empty and the other is not, if so return false since both fields must be filled or both fields must be empty
+            return false;
+        }
+        if(!acceptedCurr.contains(currency.toUpperCase()) || Float.parseFloat(price) < 0.00){//checks if the currency input is accepted
+            return false;
+        }
+        return true; //if both fields are empty, return true since the price and currency fields are optional
     }
 
     /**
