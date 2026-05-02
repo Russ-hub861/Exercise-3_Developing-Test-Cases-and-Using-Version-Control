@@ -10,7 +10,6 @@ import java.util.List;
 
 public class InputValidator 
 {
-    InputValidator isValidName = new InputValidator();
     /**
      * Validates the first name input.
      *
@@ -48,7 +47,6 @@ public class InputValidator
      * @param input the password provided by the user
      * @return true if the input is valid, false otherwise
      */
-    InputValidator isValidPassWord = new InputValidator();
     public static boolean isValidPassWord(String passWord)
     {
         if(passWord.isEmpty()) //if the password filed is empty send out a message
