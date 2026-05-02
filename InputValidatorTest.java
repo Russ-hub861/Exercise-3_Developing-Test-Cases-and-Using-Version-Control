@@ -62,8 +62,8 @@ public class InputValidatorTest {
      */
     @Test
     public void testNameFieldIsNotEmpty() {
-        assertTrue(InputValidator.isValidName("Cole"));
-        assertFalse (InputValidator.isValidName("j"));
+        assertTrue(InputValidator.isValidFirstName("Cole"));
+        assertFalse (InputValidator.isValidFirstName("j"));
     }
 
     /*
@@ -84,15 +84,15 @@ public class InputValidatorTest {
      * This test checks the password input field and makes sure that it is valid and meets all requirements
      */
     @Test
-    public void testPassWord()
+    public void testPassword()
     {
         // Test cases for password field
-        assertTrue(InputValidator.isValidPassWord("Password1"));
-        assertTrue(InputValidator.isValidPassWord("pAssword1"));
-        assertTrue(InputValidator.isValidPassWord("Secure-123"));
-        assertFalse(InputValidator.isValidPassWord("password1"));
-        assertFalse(InputValidator.isValidPassWord("12345678"));
-        assertFalse(InputValidator.isValidPassWord("bobthebest"));
+        assertTrue(InputValidator.isValidPassword("Password1"));
+        assertTrue(InputValidator.isValidPassword("pAssword1"));
+        assertTrue(InputValidator.isValidPassword("Secure-123"));
+        assertFalse(InputValidator.isValidPassword("password1"));
+        assertFalse(InputValidator.isValidPassword("12345678"));
+        assertFalse(InputValidator.isValidPassword("bobthebest"));
     }
 
     /*

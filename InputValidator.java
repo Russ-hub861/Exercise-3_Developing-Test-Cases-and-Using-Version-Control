@@ -166,10 +166,24 @@ public class InputValidator {
      * @param input the first name provided by the user
      * @return true if the input is valid, false otherwise
      */
-    public static boolean isValidName(String firstname)
+    public static boolean isValidFirstName(String firstname)
     {
-        //makes sure the length is more than 2 characters
-        return firstname.length() > 2;
+        if (firstname == null || firstname.trim().isEmpty()) { // null, empty, or whitespace-only
+            return false;
+        }
+        if (firstname.length() < 2) { // too short
+            return false;
+        }
+        if (firstname.matches(".*\\d.*")) { // contains numbers
+            return false;
+        }
+        if (firstname.matches(".*[!@#$%^&*()].*")) { // contains special characters
+            return false;
+        }
+        if (!firstname.trim().matches("^[\\p{L}]+([ ][\\p{L}]+)*$")) { // letters with optional spaces in between
+            return false;
+        }
+        return true; // valid first name
     }
     
     /**
@@ -197,7 +211,7 @@ public class InputValidator {
      * @param input the password provided by the user
      * @return true if the input is valid, false otherwise
      */
-    public static boolean isValidPassWord(String passWord)
+    public static boolean isValidPassword(String passWord)
     {
         if(passWord.isEmpty()) //if the password filed is empty send out a message
             {

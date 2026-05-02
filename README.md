@@ -1,3 +1,5 @@
+**Team Name:** KLouDS
+
 **Team Members:**
 
 Cole F. Russell, Lena Barrett, Daniel E. Celedon,
@@ -35,7 +37,7 @@ Validates an image file type and size.
 Validates a U.S. phone number.
 
 **Rules:**
-- Must begin with U.S. country code `1`. the format: `name@example.com`
+- Must begin with U.S. country code `1`.
 - Must be 10 digits long (including the country code).
 - Must contain only numbers no special characters.
 
@@ -55,7 +57,7 @@ Validates a first name.
 - Can contain letters and spaces (including diacritics)
 
 **Examples:**
-- Valid: `Cole`, `Nguyễn`, `Van Dyke`, 
+- Valid: `Cole`, `Sơn`, `Van Dyke`, 
 - Invalid: `A`, `Smith123`, `@Smith`, `""`
 
 ---
@@ -122,7 +124,7 @@ Validates a last name.
 
 ---
 
-### 8. testEmail(String input)
+### 8. testEmailField(String input)
 
 Validates an email address.
 
@@ -250,13 +252,30 @@ All methods return:
 - `true` → input is valid
 - `false` → input is invalid
 
+## How To Use
+
+1. Clone the repository and open the project in IntelliJ IDEA.
+2. The required **JUnit 5** library is included in the `/lib` folder. If IntelliJ doesn't pick it up automatically, right-click `lib` and select **Add as Library**.
+3. Call any `InputValidator` method directly on the class — all methods are `static` and return `true` for valid input, `false` for invalid:
+
+```java
+   InputValidator.testEmailField("name@example.com");        // true
+   InputValidator.isValidPhoneNum("13109061152");            // true
+   InputValidator.validatePriceField("US DOLLAR", "10.00");  // true
+```
+4. To run the tests, right-click `InputValidatorTest.java` in IntelliJ and select **Run 'InputValidatorTest'**.
+
 # Reflection
 "How did writing tests first help (or slow down) your development?
 Did your team face any conflicts when merging or reviewing code?
 How would you expand or refactor your validator for future use?"
 
-Writing tests first helped to structure our ideas before conducting them. I believe the process can feel tedious at time, but 
+Writing tests first helped to structure our ideas before conducting them. We believe the process can feel tedious at time, but 
 it can be as necessary as a blueprint is before building a house. There is learning curve to git commands but with the help of Son in our group and group effort to make sure everyone 
-was able to push their files smoothly, any conflicts resolved themselves easily. In the future,
-expanding in refactoring could be expanded upon once we figure out each other's work ethic and voice when coding,
-so cohesion of a final product will also be more cohesive. In addition, file management is important when working on different compilers.
+was able to push their files smoothly, any conflicts resolved themselves easily. In the future, expanding in refactoring could be expanded upon once we figure out each other's work ethic and voice when coding, so cohesion of a final product will also be more cohesive. In addition, file management is important when working on different compilers. Some specific changes we'd make to the validator itself:
+
+1. **Separate storage from validation:** The `userNames` list lives inside `InputValidator`, but a validator should only check inputs, not store them. We'd move username storage into a separate class so the validator stays focused on one job.
+
+2. **Standardize method names and reduce duplication:** Our methods mix `isValid...`, `validate...`, and `test...` prefixes. We'd rename everything to one convention and pull shared logic (like the near-identical first/last name checks) into a single helper method.
+
+3. **Handle bad input safely and return more useful results:** A few methods crash on `null` or unexpected input instead of returning `false`. We'd add null checks throughout, and have methods return a result object with an error message so users know why their input failed, not just that it did.
