@@ -1,8 +1,51 @@
-# Input Validator
+**Team Members:**
+
+Cole F. Russell, Lena Barrett, Daniel E. Celedon,
+& Son Le Dinh Truong.
+
+
+**Class Descriptions:** The *InputValidator* class's purpose is to create methods that check validity of what the user is 
+inputting on our website including their personal information and things added by the admin regarding information about a painting.
+This includes features such as price, medium, and dimensions.
+
+The *InputValidatorTest* class shows various test cases that account for what is and is not considered a valid input.
+
+# InputValidator
 
 ## Methods
 
-### 1. isValidFirstName
+### 1. isValidImage(String imageData, int imageSize)
+
+
+Validates an image file type and size.
+
+**Rules:**
+- Must not be null or empty
+- Must be a .png or .jpg file type
+- Must be no larger than 4mb
+
+**Examples:**
+- Valid: `imageName.png, 4`, `imageName.jpg, 3`
+- Invalid: `imageName.gif, 4`, `imageName.png, 5`, `imageName.jpg, 5`, `""`
+
+---
+
+### 2. isValidPhoneNum(String n)
+
+Validates a U.S. phone number.
+
+**Rules:**
+- Must begin with U.S. country code `1`. the format: `name@example.com`
+- Must be 10 digits long (including the country code).
+- Must contain only numbers no special characters.
+
+
+**Examples:**
+- Valid: `13109061152`, `12345678900`
+- Invalid: `02118063152`, `1012345678`
+
+
+### 3. isValidFirstName
 
 Validates a first name.
 
@@ -17,7 +60,7 @@ Validates a first name.
 
 ---
 
-### 2. isValidPostalCode
+### 4. isValidPostalCode
 
 Makes sure that the postal code is valid 
 
@@ -31,7 +74,7 @@ Makes sure that the postal code is valid
 
 ---
 
-### 3. isValidPassword
+### 5. isValidPassword
 
 Makes sure that a passwords meets all needed requirements 
 
@@ -48,7 +91,7 @@ Makes sure that a passwords meets all needed requirements
 
 ---
 
-### 4. isValidMedium
+### 6. isValidMedium
 
 Checks whether the medium is on the drop down list of mediums 
 
@@ -62,16 +105,7 @@ Checks whether the medium is on the drop down list of mediums
 
 ---
 
-### Return Values
-
-All methods return 
-- `True` -> inputs are valid 
-- `False` -> inputs are invalid 
-
-
-## Methods
-
-### 1. testLastNameField(String input)
+### 7. testLastNameField(String input)
 
 Validates a last name.
 
@@ -88,7 +122,7 @@ Validates a last name.
 
 ---
 
-### 2. testEmail(String input)
+### 8. testEmail(String input)
 
 Validates an email address.
 
@@ -104,7 +138,7 @@ Validates an email address.
 
 ---
 
-### 3. testDimension(String input)
+### 9. testDimension(String input)
 
 Validates a dimension string.
 
@@ -126,5 +160,16 @@ Validates a dimension string.
 ## Return Value
 
 All methods return:
-- `true` → input is valid  
+- `true` → input is valid
 - `false` → input is invalid
+
+# Reflection
+"How did writing tests first help (or slow down) your development?
+Did your team face any conflicts when merging or reviewing code?
+How would you expand or refactor your validator for future use?"
+
+Writing tests first helped to structure our ideas before conducting them. I believe the process can feel tedious at time, but 
+it can be as necessary as a blueprint is before building a house. There is learning curve to git commands but with the help of Son in our group and group effort to make sure everyone 
+was able to push their files smoothly, any conflicts resolved themselves easily. In the future,
+expanding in refactoring could be expanded upon once we figure out each other's work ethic and voice when coding,
+so cohesion of a final product will also be more cohesive. In addition, file management is important when working on different compilers.
