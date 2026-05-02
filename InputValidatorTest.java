@@ -1,10 +1,12 @@
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 /*
  * These are the libraries from JUnit that allows you to test
  * Java applications. For more information check the complete tutorial
  * here: https://www.tutorialspoint.com/junit/index.htm
  */
-import org.junit.Test;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
 
 
 public class InputValidatorTest {
