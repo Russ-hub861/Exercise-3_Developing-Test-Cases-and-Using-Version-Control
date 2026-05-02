@@ -10,7 +10,22 @@ import org.junit.jupiter.api.Test;
 
 public class InputValidatorTest {
 
-    /* Test method for validating the email field */
+    @Test
+    public void testPhoneNumField() {
+        // isValidPhoneNum Test Cases
+        assertTrue(InputValidator.isValidPhoneNum("13109061152")); //returns true because 1 is the only valid country code for US phone number.
+        assertFalse(InputValidator.isValidPhoneNum("02118063152")); //returns false because 0 is an invalid country code.
+        assertFalse(InputValidator.isValidPhoneNum("1012345678")); //returns false because number is not long enough.@Te
+    }
+
+    //isValidImage Test Cases
+    @Test
+    public void testImageField() {
+        assertTrue(InputValidator.isValidImage("bird.png", 4)); //returns true because the file type is <=4, and it is a valid file type.
+        assertFalse(InputValidator.isValidImage("bird.png", 5)); //returns false because the file type is > 4.
+        assertFalse(InputValidator.isValidImage("bird.gif", 3)); //returns false because it is an invalid file type.
+    }
+        /* Test method for validating the email field */
     @Test
     public void testEmailField(){
         //valid test cases for email field
